@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToyRedis.Tests", "test\ToyRedis.Tests\ToyRedis.Tests.csproj", "{240C01A4-3B85-435A-B7F6-C4521785004B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToyRedis", "src\ToyRedis\ToyRedis.csproj", "{39DAEA2E-7E5C-488B-9462-C6A2DF73A713}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{240C01A4-3B85-435A-B7F6-C4521785004B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240C01A4-3B85-435A-B7F6-C4521785004B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240C01A4-3B85-435A-B7F6-C4521785004B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240C01A4-3B85-435A-B7F6-C4521785004B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39DAEA2E-7E5C-488B-9462-C6A2DF73A713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39DAEA2E-7E5C-488B-9462-C6A2DF73A713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39DAEA2E-7E5C-488B-9462-C6A2DF73A713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39DAEA2E-7E5C-488B-9462-C6A2DF73A713}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
