@@ -26,9 +26,9 @@ public class RedisServer(int port = 0)
             while (true)
             {
                 var client = await _listener.AcceptTcpClientAsync();
-                var stream = client.GetStream();
+                var connection = new ClientConnection(client);
 
-                await stream.WriteAsync("+PONG\r\n"u8.ToArray());
+                _ = connection.HandleAsync();
             }
         }
         catch (Exception e)
