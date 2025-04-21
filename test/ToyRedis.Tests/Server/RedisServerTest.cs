@@ -16,9 +16,9 @@ public class RedisServerTest
         // Wait for the server to be ready
         await server.Ready.Task;
 
-        var tcpClient = new TcpClient("localhost", server.Port);
+        var client = new TcpClient("localhost", server.Port);
 
-        var stream = tcpClient.GetStream();
+        var stream = client.GetStream();
         var buffer = "*1\r\n$4\r\nPING\r\n"u8.ToArray();
 
         await stream.WriteAsync(buffer, cancellationToken.Token);
@@ -43,9 +43,9 @@ public class RedisServerTest
 
         await server.Ready.Task;
 
-        var tcpClient = new TcpClient("localhost", server.Port);
+        var client = new TcpClient("localhost", server.Port);
 
-        await using var stream = tcpClient.GetStream();
+        await using var stream = client.GetStream();
         var buffer = "*1\r\n$4\r\nPING\r\n"u8.ToArray();
 
         for (var i = 0; i < 2; i++)
@@ -75,9 +75,9 @@ public class RedisServerTest
 
         for (var i = 0; i < 2; i++)
         {
-            var tcpClient = new TcpClient("localhost", server.Port);
+            var client = new TcpClient("localhost", server.Port);
 
-            await using var stream = tcpClient.GetStream();
+            await using var stream = client.GetStream();
             var buffer = "*1\r\n$4\r\nPING\r\n"u8.ToArray();
 
             using var cancellationToken = new CancellationTokenSource(TimeSpan.FromSeconds(5));
