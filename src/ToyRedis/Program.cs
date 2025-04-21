@@ -1,5 +1,5 @@
 ﻿using ToyRedis.Server;
 
-var server = new RedisServer();
+var server = new RedisServer(6380);
 
 await server.StartAsync();

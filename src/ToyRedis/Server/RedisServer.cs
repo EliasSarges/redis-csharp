@@ -3,9 +3,9 @@ using System.Net.Sockets;
 
 namespace ToyRedis.Server;
 
-public class RedisServer(int port = 6380) : IDisposable
+public class RedisServer(int port = 0)
 {
-    private int Port { get; } = port;
+    public int Port { get; private set; } = port;
     private TcpListener? _listener;
 
     public TaskCompletionSource<bool> Ready { get; } = new();
@@ -16,6 +16,9 @@ public class RedisServer(int port = 6380) : IDisposable
         {
             _listener = new TcpListener(IPAddress.Any, Port);
             _listener.Start();
+
+            var localEndpoint = (IPEndPoint)_listener.LocalEndpoint;
+            Port = localEndpoint.Port;
 
             // to indicate that the server is ready
             Ready.TrySetResult(true);
@@ -35,7 +38,7 @@ public class RedisServer(int port = 6380) : IDisposable
         }
     }
 
-    public void Dispose()
+    public void Stop()
     {
         _listener?.Stop();
         _listener = null;
