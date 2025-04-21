@@ -36,6 +36,10 @@ public class RedisServer(int port = 0)
             Console.WriteLine(e);
             Ready.TrySetException(e);
         }
+        finally
+        {
+            Stop();
+        }
     }
 
     public void Stop()
